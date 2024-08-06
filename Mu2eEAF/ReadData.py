@@ -12,19 +12,22 @@ import subprocess
 import uproot 
 
 # Read a single file
-def ReadFile(fileName): 
+def ReadFile(fileName, quiet=False): 
     try:
         # Setup commands
         commands = "source /cvmfs/mu2e.opensciencegrid.org/setupmu2e-art.sh; muse setup ops;"
         commands += f"echo {fileName} | mdh print-url -s root -"
-        print(f"---> Reading file:\n\n{fileName}")
+        if not quiet:
+            print(f"---> Reading file:\n\n{fileName}")
         # Execute commands 
         fileName = subprocess.check_output(commands, shell=True, universal_newlines=True)
-        print(f"\n---> Created xroot url:\n\n{fileName}")
-        print("\n---> Opening file with uproot...") 
+        if not quiet:
+            print(f"\n---> Created xroot url:\n\n{fileName}")
+            print("\n---> Opening file with uproot...") 
         # Open the file 
         file = uproot.open(fileName)
-        print("Done!")
+        if not quiet: 
+            print("Done!")
         return file 
     except OSError as e:
         # Setup alternative commands 
