@@ -38,7 +38,7 @@ def ReadFile(fileName):
 def GetFileList(dataset):
         # Setup commands
         commands = "source /cvmfs/mu2e.opensciencegrid.org/setupmu2e-art.sh; muse setup ops;"
-        commands += "samweb list-files 'dataset: %s with availability anylocation' | sort -V " % defname
+        commands += "samweb list-files 'dataset: %s with availability anylocation' | sort -V " % dataset
         # Execute commands 
         fileList = subprocess.check_output(commands, shell=True, universal_newlines=True)
         # Return the file list
