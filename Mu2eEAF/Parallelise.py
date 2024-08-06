@@ -27,9 +27,9 @@ def Multithread(fileList, processFunction):
                 future.result()  # Retrieve the result or raise an exception if occurred
                 completedFiles += 1 
                 percentComplete = (completedFiles / totalFiles) * 100
-                print(f"---> {fileName} processed successfully! ({percentComplete}% complete...)")
+                print(f'---> {fileName} processed successfully! ({percentComplete:.1f}% complete)')
             except Exception as exc:
-                print(f"---> {fileName} generated an exception!\n{exc}")
+                print(f'---> {fileName} generated an exception!\n{exc}')
                 
     print("Multithreading completed!")
     return
