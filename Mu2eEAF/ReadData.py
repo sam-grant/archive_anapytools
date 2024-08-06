@@ -23,7 +23,7 @@ def ReadFile(fileName, quiet=False):
         fileName = subprocess.check_output(commands, shell=True, universal_newlines=True)
         if not quiet:
             print(f"\n---> Created xroot url:\n{fileName}")
-            print("\n---> Opening file with uproot...") 
+            print("---> Opening file with uproot...") 
         # Open the file 
         file = uproot.open(fileName)
         if not quiet: 
