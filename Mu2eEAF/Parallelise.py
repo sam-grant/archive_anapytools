@@ -22,7 +22,7 @@ def Multithread(fileList, processFunction):
         
         # Process results as they complete
         for future in as_completed(futures):
-            filename = futures[future]
+            fileName = futures[future]
             try:
                 future.result()  # Retrieve the result or raise an exception if occurred
                 completedFiles += 1 
