@@ -35,11 +35,11 @@ def ReadFile(fileName):
         return uproot.open("%s" % filename)
 
 # Make a file list from a SAM dataset 
-def GetFileList(dataset):
+def GetFileList(defname):
         # Setup commands
         commands = "source /cvmfs/mu2e.opensciencegrid.org/setupmu2e-art.sh; muse setup ops;"
-        commands += "samweb list-files 'dataset: %s with availability anylocation' | sort -V " % dataset
+        commands += "samweb list-files 'defname: %s with availability anylocation' | sort -V " % defname
         # Execute commands 
         fileList = subprocess.check_output(commands, shell=True, universal_newlines=True)
         # Return the file list
-        return filelist.splitlines()
+        return fileList.splitlines()
