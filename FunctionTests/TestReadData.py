@@ -1,9 +1,9 @@
 from Mu2eEAF import ReadData as rd 
     
 def TestReadFile(): 
-    fileName= "nts.sgrant.CosmicCRYExtractedCatTriggered.MDC2020ae_best_v1_3.001205_00000231.root" 
+    fileName="nts.sgrant.CosmicCRYExtractedCatTriggered.MDC2020ae_best_v1_3.001205_00000231.root" 
     file = rd.ReadFile(fileName) 
-    print(file)
+    print(file.keys)
     return 
 
 def TestGetFileList(): 
@@ -12,4 +12,4 @@ def TestGetFileList():
     return
 
 TestReadFile()
-TestGetFileList()
+# TestGetFileList()
