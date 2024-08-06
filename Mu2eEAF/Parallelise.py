@@ -31,6 +31,6 @@ def Multithread(fileList, processFunction):
             except Exception as exc:
                 print(f'---> {fileName} generated an exception!\n{exc}')
                 
-    print("Multithreading completed!")
+    print("\nMultithreading completed!")
     return
 

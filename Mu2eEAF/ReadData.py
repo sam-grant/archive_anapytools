@@ -18,11 +18,11 @@ def ReadFile(fileName, quiet=False):
         commands = "source /cvmfs/mu2e.opensciencegrid.org/setupmu2e-art.sh; muse setup ops;"
         commands += f"echo {fileName} | mdh print-url -s root -"
         if not quiet:
-            print(f"---> Reading file:\n\n{fileName}")
+            print(f"---> Reading file:\n{fileName}")
         # Execute commands 
         fileName = subprocess.check_output(commands, shell=True, universal_newlines=True)
         if not quiet:
-            print(f"\n---> Created xroot url:\n\n{fileName}")
+            print(f"\n---> Created xroot url:\n{fileName}")
             print("\n---> Opening file with uproot...") 
         # Open the file 
         file = uproot.open(fileName)
@@ -31,7 +31,7 @@ def ReadFile(fileName, quiet=False):
         return file 
     except OSError as e:
         # Setup alternative commands 
-        print("\n----> Exception timeout while opening file with xroot, retrying locally: %s" % fileName)                    
+        print(f"\n----> Exception timeout while opening file with xroot, retrying locally: {fileName}")                    
         commands = "source /cvmfs/mu2e.opensciencegrid.org/setupmu2e-art.sh; muse setup ops;"
         commands += f"echo {fileName} | mdh copy-file -s tape -l local -" 
         # Execute commands
