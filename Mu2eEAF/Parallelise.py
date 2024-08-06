@@ -18,7 +18,7 @@ def Multithread(fileList, processFunction):
     
     with ThreadPoolExecutor() as executor:
         # Submit tasks to the executor
-        futures = {executor.submit(processFunction, fileName): fileName for fileName in filelist}
+        futures = {executor.submit(processFunction, fileName): fileName for fileName in fileList}
         
         # Process results as they complete
         for future in as_completed(futures):
