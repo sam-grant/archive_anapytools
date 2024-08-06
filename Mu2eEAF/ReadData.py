@@ -16,30 +16,35 @@ def ReadFile(fileName):
     try:
         # Setup commands
         commands = "source /cvmfs/mu2e.opensciencegrid.org/setupmu2e-art.sh; muse setup ops;"
-        commands += "echo %s | mdh print-url -s root -" % fileName
-        print("---> Reading file:\n\n", fileName)
+        commands += f"echo {fileName} | mdh print-url -s root -"
+        print(f"---> Reading file:\n\n{fileName}")
         # Execute commands 
         fileName = subprocess.check_output(commands, shell=True, universal_newlines=True)
-        print("\n---> Created xroot url:\n\n", fileName)
+        print(f"\n---> Created xroot url:\n\n{fileName}")
         print("\n---> Opening file with uproot...") 
-        # Return the opened file 
-        return uproot.open("%s" % fileName)
+        # Open the file 
+        file = uproot.open(fileName)
+        print("Done!")
+        return file 
     except OSError as e:
         # Setup alternative commands 
         print("\n----> Exception timeout while opening file with xroot, retrying locally: %s" % fileName)                    
         commands = "source /cvmfs/mu2e.opensciencegrid.org/setupmu2e-art.sh; muse setup ops;"
-        commands += "echo %s | mdh copy-file -s tape -l local -" % fileName
+        commands += f"echo {fileName} | mdh copy-file -s tape -l local -" 
         # Execute commands
         subprocess.check_output(commands, shell=True, universal_newlines=True)
         # Return the opened file 
-        return uproot.open("%s" % filename)
+        return uproot.open(filename)
 
 # Make a file list from a SAM dataset 
 def GetFileList(defname):
+        print(f"---> Getting file list for {defname}.") 
         # Setup commands
         commands = "source /cvmfs/mu2e.opensciencegrid.org/setupmu2e-art.sh; muse setup ops;"
-        commands += "samweb list-files 'defname: %s with availability anylocation' | sort -V " % defname
+        commands += f"samweb list-files 'defname: {defname} with availability anylocation' | sort -V "
         # Execute commands 
         fileList = subprocess.check_output(commands, shell=True, universal_newlines=True)
         # Return the file list
-        return fileList.splitlines()
+        fileList = fileList.splitlines()
+        print("Done!")
+        return fileList
