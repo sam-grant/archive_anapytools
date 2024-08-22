@@ -24,15 +24,15 @@ def multithread(process_function, file_list, max_workers=381): # max_workers is 
         futures = {executor.submit(process_function, filename): (filename) for filename in file_list}
         
         # Process results as they complete
-        for future in as_completed(futures_):
+        for future in as_completed(futures):
             filename = futures[future] # Get the file name associated with this future
             try:
                 future.result()  # Retrieve the result 
                 completed_files += 1
                 percent_complete = (completed_files / (total_files)) * 100
-                print(f'\n---> {filename} processed successfully! ({percentComplete:.1f}% complete)')
+                print(f'\n{filename} processed successfully! ({percent_complete:.1f}% complete)')
             except Exception as exc: # Handle exceptions
-                print(f'\n---> {filename} generated an exception!\n{exc}') 
+                print(f'\n{filename} generated an exception!\n{exc}') 
                 
     print('\n---> Multithreading completed!')
     return
