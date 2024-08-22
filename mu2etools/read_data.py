@@ -14,11 +14,11 @@ import uproot
 # Read a single file
 def read_file(filename, quiet=False): 
     if not quiet:
-        print(f'---> Reading file:\n{fileName}')
+        print(f'---> Reading file:\n{filename}')
     try:
         # Setup commands
         commands = 'source /cvmfs/mu2e.opensciencegrid.org/setupmu2e-art.sh; muse setup ops;'
-        commands += f'echo {fileName} | mdh print-url -s root -'
+        commands += f'echo {filename} | mdh print-url -s root -'
         # Execute commands 
         filename = subprocess.check_output(commands, shell=True, universal_newlines=True)
         if not quiet:
