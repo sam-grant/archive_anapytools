@@ -47,7 +47,7 @@ def get_file_list(defname, quiet=False):
     try:
         # Setup commands
         commands = 'source /cvmfs/mu2e.opensciencegrid.org/setupmu2e-art.sh; muse setup ops;'
-        commands += f'samweb list-files 'defname: {defname} with availability anylocation' | sort -V'
+        commands += f'samweb list-files {defname} with availability anylocation | sort -V'
         # Execute commands 
         file_list = subprocess.check_output(commands, shell=True, universal_newlines=True)
         # Return the file list
