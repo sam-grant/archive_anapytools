@@ -1,5 +1,5 @@
-from mu2e_tools import read_data as rd 
-from mu2e_tools import parallelise as pa
+from mu2etools import read_data as rd 
+from mu2etools import parallelise as pa
     
 def test_parallelise(defname): 
     file_list = rd.get_file_list(defname)

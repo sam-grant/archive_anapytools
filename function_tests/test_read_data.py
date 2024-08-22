@@ -1,4 +1,4 @@
-from mu2e_tools import read_data as rd 
+from mu2etools import read_data as rd 
     
 def test_get_file_list(defname): 
     file_list = rd.get_file_list(defname) 
