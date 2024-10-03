@@ -1,11 +1,11 @@
 from setuptools import setup
 
 setup(
-    name='mu2etools',
-    version='0.0.1',
+    name='mu2epytools',
+    version='1.0.0',
     author='Samuel Grant',
     author_email='samuel.grant94@gmail.com',
-    description='Python tools for Mu2e collaborators using EAF.', 
-    url='https://github.com/sam-grant/mu2etools',
-    packages=['mu2etools'],
+    description='Python tools for Mu2e collaborators.', 
+    url='https://github.com/sam-grant/mu2epytools',
+    packages=['mu2epytools'],
 )

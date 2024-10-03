@@ -3,8 +3,6 @@
 Utilities for parallelising analysis jobs on FNAL EAF. 
 Samuel Grant 2024.
 
-Methods from Yuri Oksuzian at https://github.com/oksuzian/mu2etools. 
-
 '''
 
 # TODO: add ProcessPoolExecutor, explore Dask.
