@@ -1,4 +1,4 @@
-# anapytools
+# anapytools (archived)
 Python analysis tools for Mu2e collaborators, primarily designed for use on the Fermilab Elastic Analysis Facility (EAF). 
 
 Run the line below to check for and install updates. 
